@@ -61,13 +61,13 @@ namespace Oracle
 
             #region OnLoad
             FileName = "Oracle - " + DateTime.Now.ToString("yy.MM.dd") + " " + DateTime.Now.ToString("h.mm.ss") + ".txt";
-            if (!Directory.Exists(Config.LeagueSharpDirectory + @"\Logs\Oracle"))
+            if (!Directory.Exists(Config.AppDataDirectory + @"\Logs\Oracle"))
             {
-                Directory.CreateDirectory(Config.LeagueSharpDirectory + @"\Logs\Oracle");
+                Directory.CreateDirectory(Config.AppDataDirectory + @"\Logs\Oracle");
                 Game.PrintChat(
                     "<font color=\"#FFFFCC\"><b>Thank you for choosing Oracle! :^)</b></font>");
                 Game.PrintChat(
-                    "<font color=\"#FFFFCC\"><b>Log files are generated in </b></font>" + Config.LeagueSharpDirectory + @"\Logs\Oracle\");
+                    "<font color=\"#FFFFCC\"><b>Log files are generated in </b></font>" + Config.AppDataDirectory + @"\Logs\Oracle\");
             }
 
             else
@@ -195,7 +195,7 @@ namespace Oracle
         public static void Logger(LogType type, string msg)
         {
             var prefix = "[" + DateTime.Now.ToString("T") + " " + type + "]: ";
-            using (var file = new StreamWriter(Config.LeagueSharpDirectory + @"\Logs\Oracle\" + FileName, true))
+            using (var file = new StreamWriter(Config.AppDataDirectory + @"\Logs\Oracle\" + FileName, true))
             {
                 file.WriteLine(prefix + msg);
                 file.Close();
